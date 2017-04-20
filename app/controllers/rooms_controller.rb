@@ -12,6 +12,8 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to rooms_path
     else
+      @errors = @room.errors.details
+      byebug
       render :new
     end
   end
